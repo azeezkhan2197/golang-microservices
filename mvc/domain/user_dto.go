@@ -21,9 +21,9 @@ func GetUser(userId int64) (*User, *utils.ApplicationError) {
 	user, found := users[userId]
 	if !found {
 		return nil, &utils.ApplicationError{
-			Message:    fmt.Sprintf("user doesnot exist with user id : ", userId),
+			Message:    fmt.Sprintf("user doesnot exist with user id : %d", userId),
 			StatusCode: http.StatusNotFound,
-			Code:       "not found",
+			Code:       "not_found",
 		}
 	}
 	return user, nil
