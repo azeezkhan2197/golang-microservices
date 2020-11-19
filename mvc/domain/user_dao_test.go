@@ -8,7 +8,7 @@ import (
 
 //test case for non existing user
 func TestGetUserNoUserFound(t *testing.T) {
-	user, err := GetUser(0)
+	user, err := UserDao.GetUser(0)
 	assert.Nil(t, user, "we were not expecting a user with user id zero")
 	//meaning of above statement is
 	//if user == nil {
@@ -31,7 +31,7 @@ func TestGetUserNoUserFound(t *testing.T) {
 
 //Test case for existing user
 func TestGetUserNoError(t *testing.T) {
-	user, err := GetUser(123)
+	user, err := UserDao.GetUser(123)
 	assert.Nil(t, err)
 	assert.NotNil(t, user)
 

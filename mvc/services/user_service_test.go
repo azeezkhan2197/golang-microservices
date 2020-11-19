@@ -41,8 +41,4 @@ func TestGetUserFound(t *testing.T) {
 			Id: 123,
 		}, nil
 	}
-	user, err := UserService.GetUser(0)
-	assert.Nil(t, user)
-	assert.NotNil(t, err)
-	assert.EqualValues(t, http.StatusNotFound, err.StatusCode)
 }
