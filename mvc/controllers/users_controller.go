@@ -19,6 +19,8 @@ func GetUser(c *gin.Context) {
 			Code:       "bad_request",
 		}
 
+		//to send the response based on header
+		//utils.RespondError(c, apiErr)
 		//it sends the error back to the client
 		c.JSON(apiErr.StatusCode, apiErr)
 
@@ -29,10 +31,13 @@ func GetUser(c *gin.Context) {
 
 	user, apiErr := services.UserService.GetUser(int64(userId))
 	if apiErr != nil {
+		//to send the response based on header
+		//utils.RespondError(c,  apiErr)
 		c.JSON(apiErr.StatusCode, apiErr)
 		return
 	}
 
+	//to send the response based on header
+	//utils.Respond(c, http.StatusOk, user)
 	c.JSON(http.StatusOK, user)
-
 }
