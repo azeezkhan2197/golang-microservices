@@ -10,7 +10,7 @@ package github
 // 	"has_wiki": true
 //  }
 
-type CreateRepo struct {
+type CreateRepoRequest struct {
 	Name        string `json:"name"`
 	Description string `json:"description"`
 	HomePage    string `json:"homepage"`
