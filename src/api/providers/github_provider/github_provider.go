@@ -19,12 +19,14 @@ const(
 func getAuthorizationHeader(accessToken string ) string{
 	return fmt.Sprintf(headerAuthorizationFormat,accessToken)
 }
-func CreateRepoRequest(accessToken string ,request github.CreateRepoRequest)(*github.CreateRepoResponse , *github.GitHubErrorResponse){
+func CreateRepo(accessToken string ,request github.CreateRepoRequest)(*github.CreateRepoResponse , *github.GitHubErrorResponse){
 	//Header format is => Authorization  : token 92ebdb216babcc2660c6d76330706fcbdb2a64ea
 
 	headers := http.Header{}
 	headers.Set(headerAuthorization,getAuthorizationHeader(accessToken))
 	response,err := restclient.Post(urlCreateRepo,request,headers)
+	fmt.Println(response)
+	//fmt.Println(err.Error())
 	if err!=nil{
 		log.Println(fmt.Sprintf("error while creating a new repo in github %s",err.Error()))
 		return nil,&github.GitHubErrorResponse{
