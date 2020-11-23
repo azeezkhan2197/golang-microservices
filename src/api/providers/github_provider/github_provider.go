@@ -19,7 +19,7 @@ const(
 func getAuthorizationHeader(accessToken string ) string{
 	return fmt.Sprintf(headerAuthorizationFormat,accessToken)
 }
-func CreateRepoRequest(accessToken string ,request github.CreateRepoRequest)(*github.CreateRepoResponse , *github.GitHubErrorResponse){
+func CreateRepo(accessToken string ,request github.CreateRepoRequest)(*github.CreateRepoResponse , *github.GitHubErrorResponse){
 	//Header format is => Authorization  : token 92ebdb216babcc2660c6d76330706fcbdb2a64ea
 
 	headers := http.Header{}
